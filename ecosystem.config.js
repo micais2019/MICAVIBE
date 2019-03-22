@@ -7,11 +7,9 @@ module.exports = {
     {
       name:   "micapulse",
       script: "server.js",
-      // env: {
-      //   COMMON_VARIABLE: "true"
-      // },
       env_production : {
-        NODE_ENV: "production"
+        NODE_ENV: "production",
+        PORT: "8080"
       }
     },
   ],
