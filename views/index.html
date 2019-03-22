@@ -1,0 +1,65 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+
+<!-- You might want to try something fancier: -->
+<!-- html/nunjucks docs: https://mozilla.github.io/nunjucks/ -->
+<!-- pug: https://pugjs.org/ -->
+<!-- haml: http://haml.info/ -->
+<!-- hbs(handlebars): http://handlebarsjs.com/ -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SIGNALS</title>
+    <meta name="description" content="A cool thing made with Glitch">
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+      crossorigin="anonymous"></script>
+    <script src="/socket.js"></script>
+  </head>
+  
+  <body>
+    <header>
+      <h1>
+        i'm listening <span id="indicator" class="disconnected"></span>
+      </h1>
+    </header>
+
+    <main>
+      <div class="feeds">
+        <div id="feed-b" class="feed-value">
+          <span class="value"></span>
+          <caption>Control</caption>
+        </div>
+        <div id="temperature" class="feed-value">
+          <span class="value"></span>
+          <caption>Temperature</caption>
+        </div>
+        <div id="humidity" class="feed-value">
+          <span class="value"></span>
+          <caption>Humidity</caption>
+        </div>
+      </div>
+        
+      <div id="history">        
+      </div>
+    </main>
+
+    <script>
+      $(function () {
+        startWebsocket();
+      })
+    </script>
+    
+    <!-- include the Glitch button to show what the webpage is about and
+          to make it easier for folks to view source and remix -->
+    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
+    <script src="https://button.glitch.me/button.js"></script>
+    
+  </body>
+</html>

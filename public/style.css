@@ -1,0 +1,195 @@
+/* styles */
+/* called by your view template */
+
+/* You might want to try something fancier: */
+/* less: http://lesscss.org/ */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: helvetica, arial, sans-serif;
+  margin: 25px;
+}
+
+.login main {
+  width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.login main form input {
+  font-size: 24px;
+}
+
+h1 {
+  font-weight: bold;
+  color: black;
+}
+
+#indicator {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+}
+
+#indicator.connected {
+  background: #00ACEC;
+}
+
+#indicator.disconnected {
+  background: #DDDDDD;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+p {
+  max-width: 600px;
+}
+header h1 {
+  text-align: center;
+}
+
+form {
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: gray;
+  display: inline-block;
+  width: 100%;
+  max-width: 270px;
+  border-radius: 2px;
+}
+
+input[type='color'] {
+  display: block;
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 190px;
+  height: 100px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  font-size: 15px;
+}
+
+
+li {
+  margin-bottom: 5px;
+}
+
+footer {
+  margin-top: 50px;
+  padding-top: 25px;
+  border-top: 1px solid lightgrey;
+}
+
+footer > a {
+  color: #BBBBBB;
+}
+
+main:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+section {
+  display: block;
+}
+
+section.left {
+  float: left;
+}
+
+section.right {
+  float: right;
+}
+
+#history {
+  border: 1px solid blue;
+  padding: 8px;
+}
+
+.feeds {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  
+  margin-bottom: 32px;
+}
+
+.feed-value {
+  width: 23%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 140px;
+  background: #eeeeff;
+}
+
+.feed-value caption {
+  font-size: 18px;
+  color: #555;
+}
+
+.feed-value .value {
+  font-size: 48px;
+  color: black;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  section.left, section.right {
+    width: 100%;
+    float: none;
+  }
+  
+  button#ping {
+    width: 100%;
+  }
+  
+  img {
+    max-width: 100%;
+  }
+}
+
+#color-reload {
+  display: inline-block; 
+  margin-bottom: 8px;
+}
+
+.status {
+  font-family: monospace;
+}
+
+.color-display {
+  width: 200px;
+  height: 60px;
+  margin-bottom: 18px;
+  padding: 4px 8px;
+  position: relative;
+}
+
+.color-display .date {
+  position: absolute;
+  bottom: 4px;
+  right: 8px;
+  font-size: 0.7em;
+}
+
+.bg-light {
+  color: black;
+  border: 1px solid black;
+}
+
+.bg-dark {
+  color: white;
+  border: 1px solid #e0e0e0;
+}
