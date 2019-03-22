@@ -7,9 +7,17 @@ module.exports = {
     {
       name:   "micapulse",
       script: "server.js",
+      watch: true,
+      env: {
+        PORT: "8083",
+        WS_URL: "ws://localhost:8083/streaming",
+        NODE_ENV: "development",
+        NCONF_FILE: ".nconf.json"
+      },
       env_production : {
         NODE_ENV: "production",
-        PORT: "8080"
+        PORT: "8080",
+        WS_URL: "wss://micapulse.com/streaming"
       }
     },
   ],

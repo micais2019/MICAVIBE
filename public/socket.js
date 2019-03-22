@@ -6,7 +6,7 @@ function showValue(record) {
   console.log("unpack ", record)
 
   var key = record.key
-  var value = record.last_value
+  var value = record.value
 
   var $f = $('#' + key)
   $('.value', $f).text(value)
@@ -82,8 +82,7 @@ function startWebsocket() {
   msg("connecting to websocket")
 
   var sock = new WebSocketClient()
-  // sock.open("wss://io-mqtt-websocket.glitch.me/streaming")
-  sock.open("ws://localhost:57629/streaming")
+  sock.open(window.WS_URL)
 
   sock.onopen = function (event) {
     $('#indicator').removeClass('disconnected').addClass('connected')

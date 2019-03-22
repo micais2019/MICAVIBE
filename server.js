@@ -27,7 +27,7 @@ var IO_KEY = process.env.IO_KEY
 
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
-
+app.set('view engine', 'hbs');
 
 //////////////////// MQTT
 
@@ -37,7 +37,7 @@ client.on('connect', function () {
   let topic = IO_USERNAME + "/dashboard/stream/create"
 
   client.subscribe(topic, function (err) {
-    console.log("mqtt connected and subscribed")
+    console.log("mqtt connected and subscribed: ", topic)
   })
 })
 
@@ -49,12 +49,17 @@ client.on('message', function (topic, message) {
 
   const fwd = () => {
     console.log("[MQTT]", topic, message.toString())
-    sockets.onMessage(message)
+    sockets.onMessage(JSON.stringify({
+      id: data.id,
+      value: data.value,
+      key: data.feed_key,
+      created_at: data.created_at
+    }))
   }
 
-  db.update({ key: data.key }, {$set: {value: data.last_value, created_at: data.updated_at}}, function (err, n) {
+  db.update({ key: data.feed_key }, {$set: {value: data.value, created_at: data.created_at}}, function (err, n) {
     if (n === 0) {
-      db.insert({ key: data.key, value: data.last_value, created_at: data.updated_at })
+      db.insert({ key: data.feed_key, value: data.value, created_at: data.created_at })
     }
     fwd()
   })
@@ -77,7 +82,7 @@ app.ws('/streaming', function(ws, req) {
     feeds.forEach(function(feed) {
       ws.send(JSON.stringify({
         key: feed.key,
-        last_value: feed.value,
+        value: feed.value,
         created_at: feed.created_at,
         mode: "reconnect"
       }))
@@ -91,7 +96,9 @@ app.ws('/streaming', function(ws, req) {
 
 // This route sends the homepage
 app.get("/", function (req, res) {
-  res.sendFile(__dirname + '/views/index.html');
+  res.render('index', {
+    WS_URL: process.env.WS_URL
+  })
 });
 
 
