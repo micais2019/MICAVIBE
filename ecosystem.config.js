@@ -33,7 +33,7 @@ module.exports = {
       ref  : "origin/master",
       repo : "git@github.com:micais2019/micapulse.com.git",
       path : "/var/www/app",
-      "post-deploy" : "ln -s /var/www/app/shared/.nconf.json /var/www/app/current/ && npm install && pm2 startOrRestart ecosystem.config.js --env production"
+      "post-deploy" : "ln -fs /var/www/app/shared/.nconf.json /var/www/app/current/ && npm install && pm2 startOrRestart ecosystem.config.js --env production"
     }
   }
 }
