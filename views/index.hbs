@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SIGNALS</title>
+    <meta name="description" content="A cool thing made with Glitch">
+    <link id="favicon" rel="/favicon.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/style.css">
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        #MICAPULSE
+      </h1>
+    </header>
+
+    <main>
+      <div class="feeds">
+        <!--
+          <div id="monitor" class="feed-value">
+            <span class="value"></span>
+            <caption>MONITOR</caption>
+          </div>
+        -->
+        <div id="motion" class="feed-value">
+          <span class="value"></span>
+          <caption>Motion</caption>
+        </div>
+        <div id="sound" class="feed-value">
+          <span class="value"></span>
+          <caption>Sound</caption>
+        </div>
+      </div>
+
+      <a href="javascript:void(0)" id="toggle-history">show monitor</a>
+      <div id="history" style="display:none;"></div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+      crossorigin="anonymous"></script>
+    <script src="/socket.js"></script>
+    <script>
+      window.WS_URL = "{{ WS_URL }}";
+      $(function () {
+        startWebsocket()
+
+        $('#toggle-history').on('click', function () {
+          var $h = $('#history'),
+              $th = $('#toggle-history')
+          if ($h.is(":visible")) {
+            $th.text("show monitor")
+            $h.hide()
+          } else {
+            $th.text("hide monitor")
+            $h.show()
+          }
+        })
+      })
+    </script>
+  </body>
+</html>
