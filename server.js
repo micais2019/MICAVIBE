@@ -3,6 +3,11 @@
 // server.js
 // where your node app starts
 
+var nconf = require('nconf');
+nconf.argv()
+   .env()
+   .file({ file: process.env.NCONF_FILE });
+
 // set up express (the web service framework powering this app https://expressjs.com/)
 var express = require('express');
 var app = express();
@@ -22,8 +27,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 // get IO user, key, and feed from .env file
-var IO_USERNAME = process.env.IO_USERNAME
-var IO_KEY = process.env.IO_KEY
+var IO_USERNAME = nconf.get('IO_USERNAME')
+var IO_KEY = nconf.get('IO_KEY')
 
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
@@ -97,12 +102,12 @@ app.ws('/streaming', function(ws, req) {
 // This route sends the homepage
 app.get("/", function (req, res) {
   res.render('index', {
-    WS_URL: process.env.WS_URL
+    WS_URL: nconf.get('WS_URL')
   })
 });
 
 
 // start listening for requests :)
-var listener = app.listen(process.env.PORT, function () {
+var listener = app.listen(nconf.get('PORT'), function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });
