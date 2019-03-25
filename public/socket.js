@@ -6,7 +6,10 @@ function showValue(record) {
   console.log("unpack ", record)
 
   var key = record.key
-  var value = record.value
+  var value = parseInt(record.value)
+  if (isNaN(value)) {
+    value = record.value
+  }
 
   var $f = $('#' + key)
   $('.value', $f).text(value)
