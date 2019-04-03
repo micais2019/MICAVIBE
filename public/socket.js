@@ -1,12 +1,12 @@
 function msg(message) {
-  $('#history').append("<pre>" + message + "</pre>")
+  $('#history').append("<div class='row'>" + message + "</div>")
 }
 
 function showValue(record) {
   console.log("unpack ", record)
 
   var key = record.key
-  var value = parseInt(record.value)
+  var value = / /.test(record.value) ? record.value : parseInt(record.value)
   if (isNaN(value)) {
     value = record.value
   }

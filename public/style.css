@@ -11,6 +11,8 @@
 body {
   font-family: helvetica, arial, sans-serif;
   margin: 25px;
+  background: #000000;
+  color: #fff;
 }
 
 .login main {
@@ -24,8 +26,10 @@ body {
 }
 
 h1 {
+  font-size: 10em;
   font-weight: bold;
-  color: black;
+  color: #fe5000;
+  margin: 8px;
 }
 
 #indicator {
@@ -75,7 +79,6 @@ input[type='color'] {
   font-size: 15px;
 }
 
-
 li {
   margin-bottom: 5px;
 }
@@ -108,9 +111,18 @@ section.right {
   float: right;
 }
 
+a {
+  color: #0047bb;
+}
+
 #history {
-  border: 1px solid blue;
+  border: 1px solid #0047bb;
   padding: 8px;
+}
+
+#history .row {
+  margin: 7px 0;
+  font-family: monospace;
 }
 
 .feeds {
@@ -130,7 +142,10 @@ section.right {
   align-items: center;
   align-content: center;
   height: 140px;
-  background: #eeeeff;
+  background: #fedb00;
+  color: #000;
+  border-radius: 3px;
+  margin-top: 32px;
 }
 
 .feed-value caption {
