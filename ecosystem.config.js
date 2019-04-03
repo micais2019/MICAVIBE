@@ -5,7 +5,7 @@ module.exports = {
    */
   apps : [
     {
-      name:   "micapulse",
+      name:   "micavibe",
       script: "server.js",
       watch: true,
       env: {
@@ -17,7 +17,7 @@ module.exports = {
       env_production : {
         NODE_ENV: "production",
         PORT: "8080",
-        WS_URL: "wss://micapulse.com/streaming"
+        WS_URL: "wss://micavibe.com/streaming"
       }
     },
   ],
@@ -29,9 +29,9 @@ module.exports = {
   deploy : {
     production : {
       user : "micaweb",
-      host : "micapulse.com",
+      host : "micavibe.com",
       ref  : "origin/master",
-      repo : "git@github.com:micais2019/micapulse.com.git",
+      repo : "git@github.com:micais2019/micavibe.com.git",
       path : "/var/www/app",
       "post-deploy" : "ln -fs /var/www/app/shared/.nconf.json /var/www/app/current/ && npm install && pm2 startOrRestart ecosystem.config.js --env production"
     }
