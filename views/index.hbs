@@ -29,7 +29,7 @@
           <span class="value"></span>
           <caption>Motion</caption>
         </div>
-        <div id="split-motion" class="feed-value">
+        <div id="split-motion" class="feed-value" data-link="/motion">
           <span class="value"></span>
           <caption>Split Motion</caption>
         </div>
@@ -71,6 +71,14 @@
           } else {
             $th.text("hide monitor")
             $h.show()
+          }
+        })
+
+        $('.feed-value').on('click', function (evt) {
+          var $p = $(evt.target).parent('.feed-value')
+          console.log("evt", evt, $p.data('link'))
+          if ($p.data('link')) {
+            document.location.href = $p.data('link')
           }
         })
       })
