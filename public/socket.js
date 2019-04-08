@@ -81,7 +81,7 @@ WebSocketClient.prototype.reconnect = function (evt) {
   }, this.interval)
 }
 
-function startWebsocket() {
+function startWebsocket(callback) {
   msg("connecting to websocket")
 
   var sock = new WebSocketClient()
@@ -102,13 +102,21 @@ function startWebsocket() {
       var reader = new FileReader()
       reader.onload = () => {
         var message = JSON.parse(reader.result)
-        showValue(message)
+        if (callback) {
+          callback(message)
+        } else {
+          showValue(message)
+        }
         msg(JSON.stringify(message))
       }
       reader.readAsText(data)
     } else if (typeof data == "string") {
       var message = JSON.parse(data)
-      showValue(message)
+      if (callback) {
+        callback(message)
+      } else {
+        showValue(message)
+      }
       msg(JSON.stringify(message))
     }
   }

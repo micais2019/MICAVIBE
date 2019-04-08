@@ -8,6 +8,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/style.css">
+    <style>
+table.display {
+  width: 100%;
+}
+
+.display td {
+  width: 12%;
+  height: 90px;
+}
+    </style>
   </head>
 
   <body>
@@ -19,6 +29,29 @@
 
     <main>
       <a href="/">go home</a>
+
+      <table class="display">
+        <tbody>
+          <tr id="y-0">
+            <td id="x-0">&nbsp;</td> <td id="x-1"></td> <td id="x-2"></td> <td id="x-3"></td> <td id="x-4"></td> <td id="x-5"></td> <td id="x-6"></td> <td id="x-7"></td>
+          </tr>
+          <tr id="y-1">
+            <td id="x-0"></td> <td id="x-1"></td> <td id="x-2"></td> <td id="x-3"></td> <td id="x-4"></td> <td id="x-5"></td> <td id="x-6"></td> <td id="x-7"></td>
+          </tr>
+          <tr id="y-2">
+            <td id="x-0"></td> <td id="x-1"></td> <td id="x-2"></td> <td id="x-3"></td> <td id="x-4"></td> <td id="x-5"></td> <td id="x-6"></td> <td id="x-7"></td>
+          </tr>
+          <tr id="y-3">
+            <td id="x-0"></td> <td id="x-1"></td> <td id="x-2"></td> <td id="x-3"></td> <td id="x-4"></td> <td id="x-5"></td> <td id="x-6"></td> <td id="x-7"></td>
+          </tr>
+          <tr id="y-4">
+            <td id="x-0"></td> <td id="x-1"></td> <td id="x-2"></td> <td id="x-3"></td> <td id="x-4"></td> <td id="x-5"></td> <td id="x-6"></td> <td id="x-7"></td>
+          </tr>
+          <tr id="y-5">
+            <td id="x-0"></td> <td id="x-1"></td> <td id="x-2"></td> <td id="x-3"></td> <td id="x-4"></td> <td id="x-5"></td> <td id="x-6"></td> <td id="x-7"></td>
+          </tr>
+        </tbody>
+      </table>
     </main>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
@@ -26,7 +59,21 @@
     <script>
       window.WS_URL = "{{ WS_URL }}";
       $(function () {
-        startWebsocket()
+        startWebsocket(function (message) {
+          if (message.key === 'split-motion') {
+            console.log("SPLIT MOTION", message)
+
+            var values = message.value.split(' ').map(parseInt)
+            var counter = 0
+            for (var y = 0; y < 6; y++) {
+              for (var x = 0; x < 8; x++) {
+                var val = values[counter]
+                $('#y-' + y + ' #x-' + x).css({ background: "rgb(" + [val, val, val].join(',') + ")"})
+                counter++
+              }
+            }
+          }
+        })
 
         $('#toggle-history').on('click', function () {
           var $h = $('#history'),
@@ -39,6 +86,8 @@
             $h.show()
           }
         })
+
+
       })
     </script>
   </body>
