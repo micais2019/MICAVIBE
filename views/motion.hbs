@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MICA VIBE</title>
+    <meta name="description" content="THE MICA VIBE PROJECT">
+    <link id="favicon" rel="/favicon.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/style.css">
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        Motion
+      </h1>
+    </header>
+
+    <main>
+      <a href="/">go home</a>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+    <script src="/socket.js"></script>
+    <script>
+      window.WS_URL = "{{ WS_URL }}";
+      $(function () {
+        startWebsocket()
+
+        $('#toggle-history').on('click', function () {
+          var $h = $('#history'),
+              $th = $('#toggle-history')
+          if ($h.is(":visible")) {
+            $th.text("show monitor")
+            $h.hide()
+          } else {
+            $th.text("hide monitor")
+            $h.show()
+          }
+        })
+      })
+    </script>
+  </body>
+</html>
+
