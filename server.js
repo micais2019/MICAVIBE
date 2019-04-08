@@ -120,16 +120,17 @@ app.get("/weather", function (req, res) {
 
 // This route sends the homepage
 app.get("/", function (req, res) {
-  res.render('index', {
-    WS_URL: nconf.get('WS_URL')
-  })
+  res.render('index', { WS_URL: nconf.get('WS_URL') })
 });
 
 // /motion
 app.get("/motion", function (req, res) {
-  res.render('motion', {
-    WS_URL: nconf.get('WS_URL')
-  })
+  res.render('motion', { WS_URL: nconf.get('WS_URL') })
+});
+
+// /motion
+app.get("/mood", function (req, res) {
+  res.render('mood', { WS_URL: nconf.get('WS_URL') })
 });
 
 // start listening for requests :)
