@@ -28,7 +28,7 @@ And copy the sample configuration file, `.nconf.json.sample` to it's proper loca
 You'll need to add [Adafruit IO](https://io.adafruit.com) credentials for a user to `.nconf.json` in
 order to use MQTT and the `/weather` API.
 
-For now, server.js hard coded to the `mica_ia` [Adafruit IO account](https://io.adafruit.com/mica_ia/public).
+For now, server.js is hard coded to the `mica_ia` [Adafruit IO account](https://io.adafruit.com/mica_ia/public).
 
 Now that that setup is finished, you can start pm2 to run the server locally
 and run `npm run watch` to build client-side assets locally.
@@ -38,4 +38,4 @@ and run `npm run watch` to build client-side assets locally.
 
 And you _should_ be up and running!
 
-
+If you'd like to contribute your changes back to the project in this repository, contact abachman@mica.edu to get added as a contributor.
