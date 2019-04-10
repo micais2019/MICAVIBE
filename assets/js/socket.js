@@ -24,40 +24,42 @@ WebSocketClient.prototype.open = function (url) {
   this.url = url
   this.instance = new WebSocket(this.url);
 
-  this.instance.onopen = () => {
+  var self = this
+
+  this.instance.onopen = function () {
     console.log("[WebSocketClient on open]")
-    this.onopen()
+    self.onopen()
   }
 
-  this.instance.onclose = (evt) => {
+  this.instance.onclose = function (evt) {
     console.log("[WebSocketClient on close]")
     switch (evt.code){
     case 1000:  // CLOSE_NORMAL
       console.log("WebSocketClient: closed");
       break;
     default:  // Abnormal closure
-      this.reconnect(evt);
+      self.reconnect(evt);
       break;
     }
-    if (this.onclose)
-      this.onclose(evt);
+    if (self.onclose)
+      self.onclose(evt);
   }
 
-  this.instance.onerror = (evt) => {
+  this.instance.onerror = function (evt) {
     console.log("[WebSocketClient on error]")
     switch (evt.code){
     case 'ECONNREFUSED':
-      this.reconnect(evt);
+      self.reconnect(evt);
       break;
     default:
-      if (this.onerror) this.onerror(evt);
+      if (self.onerror) self.onerror(evt);
       break;
     }
   }
 
-  this.instance.onmessage = (event) => {
+  this.instance.onmessage = function (evt) {
     console.log("[WebSocketClient on message]")
-    this.onmessage(event.data)
+    self.onmessage(evt.data)
   }
 
   console.log("[WebSocketClient open] completed")
@@ -71,7 +73,7 @@ WebSocketClient.prototype.removeAllListeners = function () {
 }
 
 WebSocketClient.prototype.reconnect = function (evt) {
-  console.log(`WebSocketClient: retry in ${this.interval}ms`, evt);
+  console.log("WebSocketClient: retry in", this.interval, "ms", evt);
   this.removeAllListeners();
 
   var self = this
@@ -100,7 +102,7 @@ function startWebsocket(callback) {
   sock.onmessage = function (data) {
     if (data instanceof Blob) {
       var reader = new FileReader()
-      reader.onload = () => {
+      reader.onload = function () {
         var message = JSON.parse(reader.result)
         if (callback) {
           callback(message)

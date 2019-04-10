@@ -1,0 +1,610 @@
+@media only screen and (max-width:800px) {
+  .icon-5 {
+    margin-left: auto;
+    margin-top: 8vw;
+  }
+
+  .about_us {
+    position: absolute;
+    font-family: 'Open Sans',sans-serif;
+    font-weight: 700;
+    font-size: 4vw;
+    color: #fff;
+    text-align: center;
+    margin-left: 42vw;
+    margin-top: -22.5vw;
+  }
+
+  .info_about {
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-top: -5vw;
+    font-size: 2.5vw;
+  }
+
+  .subtitle {
+    font-weight: 700;
+    margin-top: 3vw;
+    margin-bottom: 1vw;
+  }
+}
+
+@media only screen and (min-width:801px) {
+  .icon-5 {
+    margin-left: 2vw;
+    margin-top: -10vw;
+  }
+
+  .about_us {
+    position: absolute;
+    font-family: 'Open Sans',sans-serif;
+    font-weight: 700;
+    font-size: 4vw;
+    color: #000;
+    margin-left: 15vw;
+    margin-top: -7vw;
+  }
+
+  .info_about {
+    position: absolute;
+    margin-top: -35vw;
+    margin-left: 10vw;
+    height: 38vw;
+    width: 47vw;
+    text-align: left;
+  }
+
+  .subtitle {
+    font-weight: 700;
+    margin-top: 3vw;
+    margin-bottom: 1vw;
+  }
+
+  .box-image {
+    position: absolute;
+    margin-top: -33vw;
+    margin-left: 60vw;
+    height: 38vw;
+    width: 35vw;
+    background-color: #000;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body {
+  font-family: 'Open Sans',sans-serif;
+  font-weight: 400;
+  font-size: 1.1vw;
+}
+
+.header {
+  position: relative;
+}
+
+.circles {
+  position: relative;
+}
+
+.circle {
+  position: relative;
+  mix-blend-mode: multiply;
+}
+
+.title {
+  font-family: 'Open Sans',sans-serif;
+  font-weight: 700;
+}
+
+.reveal {
+  font-family: 'Open Sans',sans-serif;
+  font-weight: 700;
+  position: absolute;
+  animation: fadein 1.2s linear forwards;
+  animation-timing-function: ease-in;
+}
+@media only screen and (min-width:801px) {
+  body {
+    background-color: #fff;
+  }
+
+  .grid-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto;
+    margin-top: 5vw;
+    padding: 1vw;
+  }
+
+  .grid-item {
+    border: 1vw;
+    padding-bottom: 8vw;
+    padding-top: 10vw;
+    text-align: center;
+  }
+
+  a:active,
+  a:hover,
+  a:link,
+  a:visited {
+    color: #000;
+    text-decoration: none;
+  }
+
+  .vibe_logo {
+    position: absolute;
+    width: 18%;
+    margin-top: 3.2vw;
+    margin-left: 2vw;
+    margin-bottom: -3vw;
+  }
+
+  .mica_logo {
+    width: 10%;
+    margin-top: 3vw;
+    margin-left: 3vw;
+    margin-bottom: -3vw;
+  }
+
+  .reveal {
+    opacity: 1;
+    font-size: 2.5vw;
+  }
+
+  .icon {
+    position: absolute;
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -6.1vw;
+    margin-top: -5vw;
+  }
+
+  .circle_motion:hover .reveal-1 {
+    cursor: pointer;
+    mix-blend-mode: multiply;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .circle_sound:hover .reveal-2 {
+    cursor: pointer;
+    mix-blend-mode: multiply;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .circle_mood:hover .reveal-3 {
+    cursor: pointer;
+    mix-blend-mode: multiply;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .circle_love:hover .reveal-4 {
+    cursor: pointer;
+    mix-blend-mode: multiply;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .circle-1 {
+    background-color: #1c468c;
+    width: 3.6vw;
+    height: 3.6vw;
+    border-radius: 50%;
+    margin-top: -5vw;
+    margin-left: -6vw;
+  }
+
+  .circle-2 {
+    background-color: #f05e43;
+    width: 6.5vw;
+    height: 6.5vw;
+    border-radius: 50%;
+    margin-top: 32px;
+    margin-left: 22px;
+  }
+
+  .sect_title-1 {
+    margin-top: -8vw;
+    margin-left: 6.5vw;
+  }
+
+  .circle-3 {
+    background-color: #24a148;
+    width: 7.5vw;
+    height: 7.5vw;
+    border-radius: 50%;
+    margin-top: -5vw;
+    margin-left: -1vw;
+  }
+
+  .circle-4 {
+    background-color: #1c468c;
+    width: 6vw;
+    height: 6vw;
+    border-radius: 50%;
+    margin-top: -1vw;
+    margin-left: -8vw;
+  }
+
+  .sect_title-2 {
+    margin-top: -7.2vw;
+    margin-left: 6.5vw;
+  }
+
+  .circle-5 {
+    background-color: #f4d64d;
+    width: 3.6vw;
+    height: 3.6vw;
+    border-radius: 50%;
+    margin-top: -1vw;
+    margin-left: -8vw;
+  }
+
+  .circle-6 {
+    background-color: #1c468c;
+    width: 6.5vw;
+    height: 6.5vw;
+    border-radius: 50%;
+    margin-top: -1vw;
+    margin-left: 1.5vw;
+  }
+
+  .sect_title-3 {
+    margin-top: -8vw;
+    margin-left: 6.5vw;
+  }
+
+  .circle-7 {
+    background-color: #1c468c;
+    width: 3vw;
+    height: 3vw;
+    border-radius: 50%;
+    margin-top: -3vw;
+    margin-left: 4vw;
+  }
+
+  .circle-8 {
+    background-color: #cd3892;
+    width: 6.5vw;
+    height: 6.5vw;
+    border-radius: 50%;
+    margin-top: 1.5vw;
+    margin-left: -7.5vw;
+  }
+
+  .sect_title-4 {
+    margin-top: -7.5vw;
+    margin-left: 6.5vw;
+  }
+
+  #about {
+    margin-top: 1.8vw;
+    margin-left: auto;
+    text-align: center;
+  }
+
+  .arrow {
+    width: 2%;
+    display: block;
+    margin-left: auto;
+    margin-top: .8vw;
+  }
+
+  #about {
+    cursor: pointer;
+  }
+
+  .arrow:hover {
+    stroke: #f05e43;
+    stroke-width: 50;
+  }
+
+  .box-info {
+    position: absolute;
+    margin-top: -5vw;
+    margin-left: -3vw;
+    height: 38vw;
+    width: 66.5vw;
+    background-color: #000;
+  }
+
+  .reveal-always {
+    opacity: 1;
+    font-size: 2.5vw;
+  }
+
+  .circle-always-1 {
+    margin-left: 2vw;
+    margin-top: 0;
+  }
+
+  .circle-always-2 {
+    margin-left: 3vw;
+    margin-top: 0;
+  }
+
+  .circle-always-3 {
+    margin-left: 3vw;
+    margin-top: 0;
+  }
+
+  .circle-always-4 {
+    margin-left: 3vw;
+    margin-top: 0;
+  }
+
+  .circle-always:hover {
+    cursor: default;
+  }
+
+  .description {
+    position: absolute;
+    margin-left: -18vw;
+    margin-top: 18vw;
+    width: 25vw;
+    text-align: left;
+  }
+}
+#menu-toggle {
+  cursor: pointer;
+}
+
+body {
+  position: relative;
+}
+
+#menu-toggle {
+  position: absolute;
+  display: block;
+  width: 32px;
+  top: 32px;
+  right: 32px;
+  z-index: 3;
+}
+
+#menu {
+  list-style-type: none;
+  margin-left: 24px;
+}
+
+#menu li {
+  margin-top: 32px;
+}
+
+nav #menu li a {
+  font-family: 'Open Sans',sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  z-index: 3;
+  color: #fff;
+  display: block;
+}
+
+nav #menu li a:hover {
+  color: #fff;
+}
+
+nav {
+  position: fixed;
+  background-color: #f05e43;
+  top: 0;
+  right: 0;
+  height: 100%;
+  z-index: 2;
+  transition: .5s;
+  width: 0;
+}
+
+nav.open {
+  width: 240px;
+}
+
+@media only screen and (max-width:800px) {
+  #menu-toggle {
+    position: fixed;
+    display: block;
+    width: 48px;
+    padding: 12px;
+    top: 0;
+    right: 0;
+    z-index: 3;
+  }
+}
+@media only screen and (max-width:800px) {
+  body {
+    background-color: #fff;
+  }
+
+  a:active,
+  a:link,
+  a:visited {
+    color: #fff;
+  }
+
+  .container {
+    margin-top: 25vw;
+  }
+
+  .vibe_logo {
+    position: relative;
+    width: 80%;
+    margin-left: 9.3vw;
+    margin-top: 6vw;
+  }
+
+  .mica_logo {
+    position: absolute;
+    margin-top: 155vw;
+    margin-left: 9vw;
+    margin-bottom: 7vw;
+    width: 102px;
+  }
+
+  .icon {
+    position: relative;
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8vw;
+    margin-bottom: 8vw;
+    z-index: -1;
+  }
+
+  .reveal {
+    opacity: 1;
+    font-size: 4vw;
+  }
+
+  .circle {
+    z-index: -1;
+  }
+
+  .circle-1 {
+    background-color: #1c468c;
+    width: 7vw;
+    height: 7vw;
+    border-radius: 100%;
+    margin-top: -33vw;
+    margin-left: 40vw;
+  }
+
+  .circle-2 {
+    background-color: #f05e43;
+    width: 12vw;
+    height: 12vw;
+    border-radius: 50%;
+    margin-top: 5vw;
+    margin-left: 55vw;
+  }
+
+  .sect_title-1 {
+    z-index: 1;
+    margin-top: -14vw;
+    margin-left: 40.5vw;
+  }
+
+  .circle-3 {
+    background-color: #24a148;
+    width: 15vw;
+    height: 15vw;
+    border-radius: 100%;
+    margin-top: -33vw;
+    margin-left: 50vw;
+  }
+
+  .circle-4 {
+    background-color: #1c468c;
+    width: 12vw;
+    height: 12vw;
+    border-radius: 50%;
+    margin-top: -2vw;
+    margin-left: 33vw;
+  }
+
+  .sect_title-2 {
+    margin-top: -15vw;
+    margin-left: 41.5vw;
+  }
+
+  .circle-5 {
+    background-color: #f4d64d;
+    width: 7vw;
+    height: 7vw;
+    border-radius: 100%;
+    margin-top: -25vw;
+    margin-left: 35vw;
+  }
+
+  .circle-6 {
+    background-color: #1c468c;
+    width: 15vw;
+    height: 15vw;
+    border-radius: 50%;
+    margin-top: -3vw;
+    margin-left: 53vw;
+  }
+
+  .sect_title-3 {
+    margin-top: -17vw;
+    margin-left: 42.3vw;
+  }
+
+  .circle-7 {
+    background-color: #1c468c;
+    width: 6vw;
+    height: 6vw;
+    border-radius: 50%;
+    margin-top: -30vw;
+    margin-left: 57vw;
+  }
+
+  .circle-8 {
+    background-color: #cd3892;
+    width: 12vw;
+    height: 12vw;
+    border-radius: 50%;
+    margin-top: 1vw;
+    margin-left: 35vw;
+  }
+
+  .sect_title-4 {
+    margin-top: -12vw;
+    margin-left: 43.3vw;
+  }
+
+  #about {
+    display: none;
+  }
+
+  .box-info {
+    position: relative;
+    margin-left: auto;
+    margin-top: -3vw;
+    height: 95vw;
+    width: 80vw;
+    background-color: #000;
+  }
+
+  .reveal-always {
+    opacity: 1;
+    color: #fff;
+  }
+
+  .circle-always-1 {
+    margin-left: auto;
+    margin-top: -17vw;
+  }
+
+  .circle-always-2 {
+    margin-left: auto;
+    margin-top: -17vw;
+  }
+
+  .circle-always-3 {
+    margin-left: auto;
+    margin-top: -17vw;
+  }
+
+  .circle-always-4 {
+    margin-left: auto;
+    margin-top: -17vw;
+  }
+
+  .circle-always:hover {
+    cursor: default;
+  }
+
+  .description-1 {
+    display: none;
+  }
+}

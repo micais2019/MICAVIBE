@@ -2,12 +2,14 @@
   "//1": "describes your app and its dependencies",
   "//2": "https://docs.npmjs.com/files/package.json",
   "//3": "updating this file will download and update your packages",
-  "name": "my-glitch-app",
+  "name": "micavibe",
   "version": "0.0.1",
-  "description": "Exchange data with Adafruit IO, server-side.",
+  "description": "MICAVIBE home",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "gulp",
+    "watch": "gulp watch"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -34,5 +36,14 @@
     "node",
     "glitch",
     "express"
-  ]
+  ],
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-concat-css": "^3.1.0",
+    "gulp-minify": "^3.1.0",
+    "gulp-rev": "^9.0.0",
+    "gulp-uglify": "^3.0.2"
+  }
 }

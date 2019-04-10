@@ -20,5 +20,4 @@ $(function () {
       document.location.href = $p.data('link')
     }
   })
-})
-
+});
