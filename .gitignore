@@ -2,3 +2,4 @@
 .data
 node_modules/
 .nconf.json
+yarn-error.log
