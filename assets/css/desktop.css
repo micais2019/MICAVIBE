@@ -234,11 +234,7 @@
     cursor: default;
   }
 
-  .description {
-    position: absolute;
-    margin-left: -18vw;
-    margin-top: 18vw;
-    width: 25vw;
-    text-align: left;
+  .footer {
+    display: none;
   }
 }

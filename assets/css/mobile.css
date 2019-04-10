@@ -19,14 +19,6 @@
     margin-top: 6vw;
   }
 
-  .mica_logo {
-    position: absolute;
-    margin-top: 155vw;
-    margin-left: 9vw;
-    margin-bottom: 7vw;
-    width: 102px;
-  }
-
   .icon {
     position: relative;
     width: 25%;
@@ -184,7 +176,26 @@
     cursor: default;
   }
 
-  .description-1 {
+  .description {
+    position: relative;
+    margin: 24px auto;
+    width: 80%;
+    text-align: left;
+    font-size: 18px;
+  }
+
+  .header #home-link {
     display: none;
   }
+
+  .footer {
+    display: block;
+    width: 80%;
+    margin: 48px auto;
+  }
+
+  .footer .mica_logo {
+    width: 102px;
+  }
+
 }

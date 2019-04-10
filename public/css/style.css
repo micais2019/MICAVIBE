@@ -87,6 +87,10 @@ body {
   position: relative;
 }
 
+.footer {
+  position: relative;
+}
+
 .circles {
   position: relative;
 }
@@ -107,6 +111,18 @@ body {
   position: absolute;
   animation: fadein 1.2s linear forwards;
   animation-timing-function: ease-in;
+}
+
+.description {
+  position: absolute;
+  margin-left: -18vw;
+  margin-top: 14vw;
+  width: 25vw;
+  text-align: left;
+}
+
+.description p {
+  margin-bottom: 18px;
 }
 @media only screen and (min-width:801px) {
   body {
@@ -346,12 +362,8 @@ body {
     cursor: default;
   }
 
-  .description {
-    position: absolute;
-    margin-left: -18vw;
-    margin-top: 18vw;
-    width: 25vw;
-    text-align: left;
+  .footer {
+    display: none;
   }
 }
 #menu-toggle {
@@ -439,14 +451,6 @@ nav.open {
     width: 80%;
     margin-left: 9.3vw;
     margin-top: 6vw;
-  }
-
-  .mica_logo {
-    position: absolute;
-    margin-top: 155vw;
-    margin-left: 9vw;
-    margin-bottom: 7vw;
-    width: 102px;
   }
 
   .icon {
@@ -604,7 +608,25 @@ nav.open {
     cursor: default;
   }
 
-  .description-1 {
+  .description {
+    position: relative;
+    margin: 24px auto;
+    width: 80%;
+    text-align: left;
+    font-size: 18px;
+  }
+
+  .header #home-link {
     display: none;
+  }
+
+  .footer {
+    display: block;
+    width: 80%;
+    margin: 48px auto;
+  }
+
+  .footer .mica_logo {
+    width: 102px;
   }
 }
