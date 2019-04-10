@@ -23,7 +23,7 @@ And the pm2 process manager tool:
 
 And copy the sample configuration file, `.nconf.json.sample` to it's proper location.
 
-    cp .nconf.json.sample .nconf.json
+    $ cp .nconf.json.sample .nconf.json
 
 You'll need to add [Adafruit IO](https://io.adafruit.com) credentials for a user to `.nconf.json` in
 order to use MQTT and the `/weather` API.
@@ -33,8 +33,8 @@ For now, server.js hard coded to the `mica_ia` [Adafruit IO account](https://io.
 Now that that setup is finished, you can start pm2 to run the server locally
 and run `npm run watch` to build client-side assets locally.
 
-    pm2 start ecosystem.config.js
-    npm run watch
+    $ pm2 start ecosystem.config.js
+    $ npm run watch
 
 And you _should_ be up and running!
 
