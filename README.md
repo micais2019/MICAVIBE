@@ -1,7 +1,41 @@
-# Adafruit IO App for Triggering Alarms
+# MICAVIBE
 
-Adafruit IO is Internet of Things as a service. This app you're looking at right here is a quick, single purpose implementation of a few client APIs.
+This repository contains the source code for the MICAVIBE project's public website.
 
-Using only the [IO HTTP API](https://io.adafruit.com/api/docs/#!/v2), we can add data to feeds and read recent data from feeds. This lets us share data quickly between connected devices, things like browsers, phones, and other network connected hardware.
+### Development
 
-By hooking up [MQTT subscribers](https://learn.adafruit.com/adafruit-io/mqtt-api) we can even react to new data in (very very close to) real time!
+So you'd like to build a webapp! The following instructions are for Mac or Linux users.
+
+If you'd like to download MICAVIBE and run it yourself, can use git to get this project:
+
+    $ git clone https://github.com/micais2019/MICAVIBE.git
+
+Then you'll need to [install node.js](https://nodejs.org/en/download/).
+
+After you have node.js and npm (which comes with node.js) installed, you can install project support packages:
+
+    $ cd MICAVIBE
+    $ npm install
+
+And the pm2 process manager tool:
+
+    $ npm install -g pm2
+
+And copy the sample configuration file, `.nconf.json.sample` to it's proper location.
+
+    cp .nconf.json.sample .nconf.json
+
+You'll need to add [Adafruit IO](https://io.adafruit.com) credentials for a user to `.nconf.json` in
+order to use MQTT and the `/weather` API.
+
+For now, server.js hard coded to the `mica_ia` [Adafruit IO account](https://io.adafruit.com/mica_ia/public).
+
+Now that that setup is finished, you can start pm2 to run the server locally
+and run `npm run watch` to build client-side assets locally.
+
+    pm2 start ecosystem.config.js
+    npm run watch
+
+And you _should_ be up and running!
+
+
