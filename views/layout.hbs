@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <meta charset='UTF-8' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>{{title}}</title>
+
+    <link rel="stylesheet" href="/base.css">
+    <link rel="stylesheet" href="/menu.css">
+    <link rel="stylesheet" href="/mobile.css">
+    <link rel="stylesheet" href="/desktop.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+
+    <script src="/menu.js"></script>
+  </head>
+
+  <body>
+    <img id="menu-toggle" onclick="toggleNav()" src="images/menu_icon.svg" alt="Open Menu" />
+    <nav>
+      <div class="menu-container">
+        <ul id="menu">
+          <li><a href="/motion"><span id="menusect-1">/MOTION</span></a></li>
+          <li><a href="/sound"><span id="menusect-2">/SOUND</span></a></li>
+          <li><a href="/mood"><span id="menusect-3">/MOOD</span></a></li>
+          <li><a href="/love"><span id="menusect-4">/LOVE</span></a></li>
+          <li><a href="/about"><span id="menusect-5">/ABOUT</span></a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="header">
+      <a href="/"><img class="mica_logo" src="images/MICA_logo.png" alt="logo"></a>
+      <img class=" vibe_logo " src="images/pulse_logo.svg " alt="pulse_logo ">
+    </div>
+
+    {{{body}}}
+
+    <div id="about">
+      <a href="about">
+        <span>about us</span>
+        <svg version="1.1" class="arrow" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 750 303" style="enable-background:new 0 0 750 303;" xml:space="preserve">
+          <style type="text/css">.arrow{fill:none;stroke:#1D1D1B;stroke-width:30;stroke-miterlimit:10;}</style>
+          <polyline class="st0" points="8.3,12.8 381,285.2 742,10 "/>
+        </svg>
+      </a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+    <script src="/socket.js"></script>
+    <script src="/application.js"></script>
+    <script>window.WS_URL = "{{ WS_URL }}";</script>
+
+  </body>
+
+</html>
+

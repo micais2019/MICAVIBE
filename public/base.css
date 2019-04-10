@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 1.1vw;
+}
+
+.header {
+  position: relative;
+}
+
+.circles {
+  position: relative;
+}
+
+.circle {
+  position: relative;
+  mix-blend-mode: multiply;
+}
+
+.title {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  /* position: absolute; */
+}
+
+.reveal {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  position: absolute;
+  animation: fadein 1.2s linear forwards;
+  animation-timing-function: ease-in;
+}

@@ -1,99 +1,29 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>MICA VIBE</title>
-    <meta name="description" content="THE MICA VIBE PROJECT">
-    <link id="favicon" rel="/favicon.ico" type="image/x-icon">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/style.css">
-    <style>
-table.display {
-  width: 100%;
-}
-
-.display td {
-  width: 12%;
-  height: 90px;
-}
-    </style>
-  </head>
-
-  <body>
-    <header>
-      <h1>
-        Motion
-      </h1>
-    </header>
-
-    <main>
-      <table class="display">
-        <tbody>
-          <tr id="y-0">
-            <td id="x-0">&nbsp;</td> <td id="x-1"></td> <td id="x-2"></td> <td id="x-3"></td> <td id="x-4"></td> <td id="x-5"></td> <td id="x-6"></td> <td id="x-7"></td>
-          </tr>
-          <tr id="y-1">
-            <td id="x-0"></td> <td id="x-1"></td> <td id="x-2"></td> <td id="x-3"></td> <td id="x-4"></td> <td id="x-5"></td> <td id="x-6"></td> <td id="x-7"></td>
-          </tr>
-          <tr id="y-2">
-            <td id="x-0"></td> <td id="x-1"></td> <td id="x-2"></td> <td id="x-3"></td> <td id="x-4"></td> <td id="x-5"></td> <td id="x-6"></td> <td id="x-7"></td>
-          </tr>
-          <tr id="y-3">
-            <td id="x-0"></td> <td id="x-1"></td> <td id="x-2"></td> <td id="x-3"></td> <td id="x-4"></td> <td id="x-5"></td> <td id="x-6"></td> <td id="x-7"></td>
-          </tr>
-          <tr id="y-4">
-            <td id="x-0"></td> <td id="x-1"></td> <td id="x-2"></td> <td id="x-3"></td> <td id="x-4"></td> <td id="x-5"></td> <td id="x-6"></td> <td id="x-7"></td>
-          </tr>
-          <tr id="y-5">
-            <td id="x-0"></td> <td id="x-1"></td> <td id="x-2"></td> <td id="x-3"></td> <td id="x-4"></td> <td id="x-5"></td> <td id="x-6"></td> <td id="x-7"></td>
-          </tr>
-        </tbody>
-      </table>
-
-      <a href="/">go home</a>
-
-      <a href="javascript:void(0)" id="toggle-history">show monitor</a>
-      <div id="history" style="display:none;"></div>
-    </main>
-
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
-    <script src="/socket.js"></script>
-    <script>
-      window.WS_URL = "{{ WS_URL }}";
-      $(function () {
-        startWebsocket(function (message) {
-          if (message.key === 'split-motion') {
-            console.log("SPLIT MOTION", message)
-
-            var values = message.value.split(' ').map(parseInt)
-            var counter = 0
-            for (var y = 0; y < 6; y++) {
-              for (var x = 0; x < 8; x++) {
-                var val = values[counter]
-                $('#y-' + y + ' #x-' + x).css({ background: "rgb(" + [val, val, val].join(',') + ")"})
-                counter++
-              }
-            }
-          }
-        })
-
-        $('#toggle-history').on('click', function () {
-          var $h = $('#history'),
-              $th = $('#toggle-history')
-          if ($h.is(":visible")) {
-            $th.text("show monitor")
-            $h.hide()
-          } else {
-            $th.text("hide monitor")
-            $h.show()
-          }
-        })
-
-
-      })
-    </script>
-  </body>
-</html>
+<div class="section">
+  <div class="grid-container">
+    <div class="grid-item g-1">
+      <div class="container">
+        <div class="circle_motion circle-always-1">
+          <img class="icon icon-1" src="images/circle_icon.svg" alt="icon">
+          <div class="reveal reveal-always">
+            <div class="circle circle-1"></div>
+            <div class="circle circle-2"></div>
+            <div class="sect_title-1">/MOTION</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="grid-item g-2">
+      <p class="description description-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+    </div>
+    <div class="grid-item g-3">
+      <div class="box-info"></div>
+    </div>
+    <div class="grid-item g-4"></div>
+    <div class="grid-item g-5"></div>
+    <div class="grid-item g-6"></div>
+    <div class="grid-item g-7"></div>
+    <div class="grid-item g-8"></div>
+  </div>
+</div>
 

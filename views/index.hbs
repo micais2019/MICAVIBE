@@ -1,87 +1,70 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>MICA VIBE</title>
-    <meta name="description" content="THE MICA VIBE PROJECT">
-    <link id="favicon" rel="/favicon.ico" type="image/x-icon">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/style.css">
-  </head>
+<div class="grid-container">
+  <div class="grid-item g-1"></div>
+  <div class="grid-item g-2"></div>
 
-  <body>
-    <header>
-      <h1>
-        #MICAVIBE
-      </h1>
-    </header>
-
-    <main>
-      <div class="feeds">
-        <!--
-          <div id="monitor" class="feed-value">
-            <span class="value"></span>
-            <caption>MONITOR</caption>
-          </div>
-        -->
-        <div id="motion" class="feed-value">
-          <span class="value"></span>
-          <caption>Motion</caption>
-        </div>
-        <div id="split-motion" class="feed-value" data-link="/motion">
-          <span class="value"></span>
-          <caption>Split Motion</caption>
-        </div>
-        <div id="sound" class="feed-value">
-          <span class="value"></span>
-          <caption>Sound</caption>
-        </div>
-        <div id="sound-2" class="feed-value">
-          <span class="value"></span>
-          <caption>Sound 2</caption>
-        </div>
-        <div id="mood" class="feed-value">
-          <span class="value"></span>
-          <caption>Mood</caption>
-        </div>
-        <div id="mood-2" class="feed-value">
-          <span class="value"></span>
-          <caption>Mood 2</caption>
+  <div class="grid-item g-3">
+    <a href="/motion">
+      <div class="circles circle_motion">
+        <img class="icon icon-1" src="images/circle_icon.svg" alt="icon">
+        <div class="reveal reveal-1">
+          <div class="circle circle-1"></div>
+          <div class="circle circle-2"></div>
+          <div class="sect_title-1">/MOTION</div>
         </div>
       </div>
+    </a>
+  </div>
 
-      <a href="javascript:void(0)" id="toggle-history">show monitor</a>
-      <div id="history" style="display:none;"></div>
-    </main>
+  <div class="grid-item g-4"></div>
+  <div class="grid-item g-5"></div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
-    <script src="/socket.js"></script>
-    <script>
-      window.WS_URL = "{{ WS_URL }}";
-      $(function () {
-        startWebsocket()
+  <div class="grid-item g-6">
+    <a href="/sound">
+      <div class="circles circle_sound">
+        <img class="icon icon-2" src="images/circle_icon.svg" alt="icon">
+        <div class="reveal reveal-2">
+          <div class="circle circle-3"></div>
+          <div class="circle circle-4"></div>
+          <div class="sect_title-2">/SOUND</div>
+        </div>
+      </div>
+    </a>
+  </div>
 
-        $('#toggle-history').on('click', function () {
-          var $h = $('#history'),
-              $th = $('#toggle-history')
-          if ($h.is(":visible")) {
-            $th.text("show monitor")
-            $h.hide()
-          } else {
-            $th.text("hide monitor")
-            $h.show()
-          }
-        })
+  <div class="grid-item g-7"></div>
+  <div class="grid-item g-8"></div>
+  <div class="grid-item g-9"></div>
+  <div class="grid-item g-10"></div>
 
-        $('.feed-value').on('click', function (evt) {
-          var $p = $(evt.target).parent('.feed-value')
-          console.log("evt", evt, $p.data('link'))
-          if ($p.data('link')) {
-            document.location.href = $p.data('link')
-          }
-        })
-      })
-    </script>
-  </body>
-</html>
+  <div class="grid-item g-11">
+    <a href="/mood">
+      <div class="circles circle_mood">
+        <img class="icon icon-3" src="images/circle_icon.svg" alt="icon">
+        <div class="reveal reveal-3">
+          <div class="circle circle-5"></div>
+          <div class="circle circle-6"></div>
+          <div class="sect_title-3">/MOOD</div>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <div class="grid-item g-12"></div>
+  <div class="grid-item g-13"></div>
+
+  <div class="grid-item g-14">
+    <a href="/love">
+      <div class="circles circle_love">
+        <img class="icon icon-4" src="images/circle_icon.svg" alt="icon">
+        <div class="reveal reveal-4">
+          <div class="circle circle-7"></div>
+          <div class="circle circle-8"></div>
+          <div class="sect_title-4">/LOVE</div>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <div class="grid-item g-15"></div>
+  <div class="grid-item g-16"></div>
+</div>

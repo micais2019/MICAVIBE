@@ -1,0 +1,244 @@
+@media only screen and (min-width: 801px) {
+  body {
+    background-color: #ffffff;
+  }
+
+  .grid-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto;
+    margin-top: 5vw;
+    padding: 1vw;
+  }
+
+  .grid-item {
+    border: 1vw;
+    padding-bottom: 8vw;
+    padding-top: 10vw;
+    text-align: center;
+  }
+
+  a:active, a:link, a:visited, a:hover {
+    color: #000000;
+    text-decoration: none;
+  }
+
+  .vibe_logo {
+    position: absolute;
+    width: 18%;
+    margin-top: 3.2vw;
+    margin-left: 2vw;
+    margin-bottom: -3vw;
+  }
+
+  .mica_logo {
+    width: 10%;
+    margin-top: 3vw;
+    margin-left: 3vw;
+    margin-bottom: -3vw;
+  }
+
+  .reveal {
+    opacity: 1;
+    font-size: 2.5vw;
+  }
+
+  .icon {
+    position: absolute;
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -6.1vw;
+    margin-top: -5vw;
+  }
+
+  .circle_motion:hover .reveal-1 {
+    cursor: pointer;
+    mix-blend-mode: multiply;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .circle_sound:hover .reveal-2 {
+    cursor: pointer;
+    mix-blend-mode: multiply;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .circle_mood:hover .reveal-3 {
+    cursor: pointer;
+    mix-blend-mode: multiply;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .circle_love:hover .reveal-4 {
+    cursor: pointer;
+    mix-blend-mode: multiply;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .circle-1 {
+    background-color: #1c468c;
+    width: 3.6vw;
+    height: 3.6vw;
+    border-radius: 50%;
+    margin-top: -5vw;
+    margin-left: -6vw;
+  }
+
+  .circle-2 {
+    background-color: #f05e43;
+    width: 6.5vw;
+    height: 6.5vw;
+    border-radius: 50%;
+    margin-top: 32px;
+    margin-left: 22px;
+  }
+
+  .sect_title-1 {
+    margin-top: -8vw;
+    margin-left: 6.5vw;
+  }
+
+  .circle-3 {
+    background-color: #24a148;
+    width: 7.5vw;
+    height: 7.5vw;
+    border-radius: 50%;
+    margin-top: -5vw;
+    margin-left: -1vw;
+  }
+
+  .circle-4 {
+    background-color: #1c468c;
+    width: 6vw;
+    height: 6vw;
+    border-radius: 50%;
+    margin-top: -1vw;
+    margin-left: -8vw;
+  }
+
+  .sect_title-2 {
+    margin-top: -7.2vw;
+    margin-left: 6.5vw;
+  }
+
+  .circle-5 {
+    background-color: #f4d64d;
+    width: 3.6vw;
+    height: 3.6vw;
+    border-radius: 50%;
+    margin-top: -1vw;
+    margin-left: -8vw;
+  }
+
+  .circle-6 {
+    background-color: #1c468c;
+    width: 6.5vw;
+    height: 6.5vw;
+    border-radius: 50%;
+    margin-top: -1vw;
+    margin-left: 1.5vw;
+  }
+
+  .sect_title-3 {
+    margin-top: -8vw;
+    margin-left: 6.5vw;
+  }
+
+  .circle-7 {
+    background-color: #1c468c;
+    width: 3vw;
+    height: 3vw;
+    border-radius: 50%;
+    margin-top: -3vw;
+    margin-left: 4vw;
+  }
+
+  .circle-8 {
+    background-color: #cd3892;
+    width: 6.5vw;
+    height: 6.5vw;
+    border-radius: 50%;
+    margin-top: 1.5vw;
+    margin-left: -7.5vw;
+  }
+
+  .sect_title-4 {
+    margin-top: -7.5vw;
+    margin-left: 6.5vw;
+  }
+
+  #about {
+    margin-top: 1.8vw;
+    margin-left: auto;
+    text-align: center;
+  }
+
+  .arrow {
+    width: 2%;
+    display: block;
+    margin-left: auto;
+    margin-top: 0.8vw;
+  }
+
+  #about {
+    cursor: pointer;
+  }
+
+  .arrow:hover {
+    stroke: #f05e43;
+    stroke-width: 50;
+  }
+
+  /* <----- SECTION PAGES -----> */
+  .box-info {
+    position: absolute;
+    margin-top: -5vw;
+    margin-left: -3vw;
+    height: 38vw;
+    width: 66.5vw;
+    background-color: #000000;
+  }
+
+  .reveal-always {
+    opacity: 1;
+    font-size: 2.5vw;
+  }
+
+  .circle-always-1 {
+    margin-left: 2vw;
+    margin-top: 0vw;
+  }
+
+  .circle-always-2 {
+    margin-left: 3vw;
+    margin-top: 0vw;
+  }
+
+  .circle-always-3 {
+    margin-left: 3vw;
+    margin-top: 0vw;
+  }
+
+  .circle-always-4 {
+    margin-left: 3vw;
+    margin-top: 0vw;
+  }
+
+  .circle-always:hover {
+    cursor: default;
+  }
+
+  .description {
+    position: absolute;
+    margin-left: -18vw;
+    margin-top: 18vw;
+    width: 25vw;
+    text-align: left;
+  }
+}

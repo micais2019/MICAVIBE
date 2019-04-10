@@ -123,9 +123,10 @@ app.get("/", function (req, res) {
   res.render('index', { WS_URL: nconf.get('WS_URL') })
 });
 
-// /motion
-app.get("/motion", function (req, res) {
-  res.render('motion', { WS_URL: nconf.get('WS_URL') })
+// static pages
+app.get(/\/(motion|sound|mood|love|about)/, function (req, res) {
+  var page = req.path.replace('/','')
+  res.render(page, { WS_URL: nconf.get('WS_URL') })
 });
 
 // /motion

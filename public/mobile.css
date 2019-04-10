@@ -1,0 +1,190 @@
+/* Mobile Styles */
+@media only screen and (max-width: 800px) {
+  body {
+    background-color: #ffffff;
+  }
+
+  a:active, a:link, a:visited {
+    color: #ffffff;
+  }
+
+  .container {
+    margin-top: 25vw;
+  }
+
+  .vibe_logo {
+    position: relative;
+    width: 80%;
+    margin-left: 9.3vw;
+    margin-top: 6vw;
+  }
+
+  .mica_logo {
+    position: absolute;
+    margin-top: 155vw;
+    margin-left: 9vw;
+    margin-bottom: 7vw;
+    width: 102px;
+  }
+
+  .icon {
+    position: relative;
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8vw;
+    margin-bottom: 8vw;
+    padding: -10vw;
+    z-index: -1;
+  }
+
+  .reveal {
+    opacity: 1;
+    font-size: 4vw;
+  }
+
+  .circle {
+    z-index: -1;
+  }
+
+  .circle-1 {
+    background-color: #1c468c;
+    width: 7vw;
+    height: 7vw;
+    border-radius: 100%;
+    margin-top: -33vw;
+    margin-left: 40vw;
+  }
+
+  .circle-2 {
+    background-color: #f05e43;
+    width: 12vw;
+    height: 12vw;
+    border-radius: 50%;
+    margin-top: 5vw;
+    margin-left: 55vw;
+  }
+
+  .sect_title-1 {
+    z-index: 1;
+    margin-top: -14vw;
+    margin-left: 40.5vw;
+  }
+
+  .circle-3 {
+    background-color: #24a148;
+    width: 15vw;
+    height: 15vw;
+    border-radius: 100%;
+    margin-top: -33vw;
+    margin-left: 50vw;
+  }
+
+  .circle-4 {
+    background-color: #1c468c;
+    width: 12vw;
+    height: 12vw;
+    border-radius: 50%;
+    margin-top: -2vw;
+    margin-left: 33vw;
+  }
+
+  .sect_title-2 {
+    margin-top: -15vw;
+    margin-left: 41.5vw;
+  }
+
+  .circle-5 {
+    background-color: #f4d64d;
+    width: 7vw;
+    height: 7vw;
+    border-radius: 100%;
+    margin-top: -25vw;
+    margin-left: 35vw;
+  }
+
+  .circle-6 {
+    background-color: #1c468c;
+    width: 15vw;
+    height: 15vw;
+    border-radius: 50%;
+    margin-top: -3vw;
+    margin-left: 53vw;
+  }
+
+  .sect_title-3 {
+    margin-top: -17vw;
+    margin-left: 42.3vw;
+  }
+
+  .circle-7 {
+    background-color: #1c468c;
+    width: 6vw;
+    height: 6vw;
+    border-radius: 50%;
+    margin-top: -30vw;
+    margin-left: 57vw;
+  }
+
+  .circle-8 {
+    background-color: #cd3892;
+    width: 12vw;
+    height: 12vw;
+    border-radius: 50%;
+    margin-top: 1vw;
+    margin-left: 35vw;
+  }
+
+  .sect_title-4 {
+    margin-top: -12vw;
+    margin-left: 43.3vw;
+  }
+
+  #about {
+    display: none;
+  }
+
+  /* <----- SECTION PAGES -----> */
+  .box-info {
+    position: relative;
+    margin-left: auto;
+    margin-top: -3vw;
+    height: 95vw;
+    width: 80vw;
+    background-color: #000000;
+  }
+
+  .reveal-always {
+    opacity: 1;
+    color: #ffffff;
+  }
+
+  .circle-always-1 {
+    margin-left: auto;
+    margin-top: -17vw;
+  }
+
+  .circle-always-2 {
+    margin-left: auto;
+    margin-top: -17vw;
+  }
+
+  .circle-always-3 {
+    margin-left: auto;
+    margin-top: -17vw;
+  }
+
+  .circle-always-4 {
+    margin-left: auto;
+    margin-top: -17vw;
+  }
+
+  .circle-always:hover {
+    cursor: default;
+  }
+
+  .description-1 {
+    display: none;
+  }
+}

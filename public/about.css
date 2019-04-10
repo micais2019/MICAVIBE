@@ -1,0 +1,74 @@
+@media only screen and (max-width: 800px) {
+  .icon-5 {
+    margin-left: auto;
+    margin-top: 8vw;
+  }
+
+  .about_us {
+    position: absolute;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 4vw;
+    color: #ffffff;
+    text-align: center;
+    margin-left: 42vw;
+    margin-top: -22.5vw;
+  }
+
+  .info_about {
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-top: -5vw;
+    font-size: 2.5vw;
+  }
+
+  .subtitle {
+    font-weight: 700;
+    margin-top: 3vw;
+    margin-bottom: 1vw;
+  }
+}
+
+/* Desktop Styles */
+
+@media only screen and (min-width: 801px) {
+  .icon-5 {
+    margin-left: 2vw;
+    margin-top: -10vw;
+  }
+
+  .about_us {
+    position: absolute;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 4vw;
+    color: #000000;
+    margin-left: 15vw;
+    margin-top: -7vw;
+  }
+
+  .info_about {
+    position: absolute;
+    margin-top: -35vw;
+    margin-left: 10vw;
+    height: 38vw;
+    width: 47vw;
+    text-align: left;
+  }
+
+  .subtitle {
+    font-weight: 700;
+    margin-top: 3vw;
+    margin-bottom: 1vw;
+  }
+
+  .box-image {
+    position: absolute;
+    margin-top: -33vw;
+    margin-left: 60vw;
+    height: 38vw;
+    width: 35vw;
+    background-color: #000000;
+  }
+}
+
