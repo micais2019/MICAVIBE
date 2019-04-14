@@ -111,9 +111,15 @@ app.get("/weather", function (req, res) {
 
   weather.findOne({at: { $lt: (new Date(at)).getTime() }}, function (err, doc) {
     if (doc) {
+      var time = new Date(doc.at).toISOString()
+      doc.at_formatted = time
+
       res.send(JSON.stringify(doc))
     } else {
-      res.send(JSON.stringify({ at: at, current: {} }))
+      var empty = { at: at, current: {} }
+      var time = new Date(at).toISOString()
+      empty.at_formatted = time
+      res.send(JSON.stringify(empty))
     }
   })
 });
