@@ -1,0 +1,40 @@
+  <div class="grid-container">
+    <div class="grid-item g-1">
+      <div class="container">
+        <div class="circle_mood circle-always-3">
+          <img class="icon icon-3" src="images/circle_icon.svg" alt="icon">
+          <div class="reveal reveal-always">
+            <div class="circle circle-5"></div>
+            <div class="circle circle-6"></div>
+            <div class="sect_title-3">/ALL DATA</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="grid-item g-2">
+      <div class="description description-1">
+        <p>
+          As data flows through the system, we can see it accumulate.
+        </p>
+      </div>
+    </div>
+    <div class="grid-item g-3">
+      <div class="box-info" id="container"></div>
+    </div>
+    <div class="grid-item g-4"></div>
+    <div class="grid-item g-5"></div>
+    <div class="grid-item g-6"></div>
+    <div class="grid-item g-7"></div>
+    <div class="grid-item g-8"></div>
+  </div>
+</div>
+
+{{#contentFor "tail"}}
+{{!--
+  Each page that loads a p5.js sketch should include this code.
+--}}
+  <script>
+    window.sketches.data(window.document.getElementById('container'))
+  </script>
+{{/contentFor}}
+

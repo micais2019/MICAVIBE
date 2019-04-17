@@ -3,7 +3,8 @@ function msg(message) {
 }
 
 function showValue(record) {
-  console.log("unpack ", record)
+  if (window.DEBUG)
+    console.log("unpack ", record)
 
   var key = record.key
   var value = / /.test(record.value) ? record.value : parseInt(record.value)
@@ -17,7 +18,7 @@ function showValue(record) {
 
 // https://github.com/websockets/ws/wiki/Websocket-client-implementation-for-auto-reconnect
 function WebSocketClient() {
-  this.interval = 5000;
+  this.interval = 1500;
 }
 
 WebSocketClient.prototype.open = function (url) {
@@ -27,15 +28,18 @@ WebSocketClient.prototype.open = function (url) {
   var self = this
 
   this.instance.onopen = function () {
-    console.log("[WebSocketClient on open]")
+    if (window.DEBUG)
+      console.log("[WebSocketClient on open]")
     self.onopen()
   }
 
   this.instance.onclose = function (evt) {
-    console.log("[WebSocketClient on close]")
+    if (window.DEBUG)
+      console.log("[WebSocketClient on close]")
     switch (evt.code){
     case 1000:  // CLOSE_NORMAL
-      console.log("WebSocketClient: closed");
+      if (window.DEBUG)
+        console.log("WebSocketClient: closed");
       break;
     default:  // Abnormal closure
       self.reconnect(evt);
@@ -46,7 +50,8 @@ WebSocketClient.prototype.open = function (url) {
   }
 
   this.instance.onerror = function (evt) {
-    console.log("[WebSocketClient on error]")
+    if (window.DEBUG)
+      console.log("[WebSocketClient on error]")
     switch (evt.code){
     case 'ECONNREFUSED':
       self.reconnect(evt);
@@ -58,11 +63,13 @@ WebSocketClient.prototype.open = function (url) {
   }
 
   this.instance.onmessage = function (evt) {
-    console.log("[WebSocketClient on message]")
+    if (window.DEBUG)
+      console.log("[WebSocketClient on message]")
     self.onmessage(evt.data)
   }
 
-  console.log("[WebSocketClient open] completed")
+  if (window.DEBUG)
+    console.log("[WebSocketClient open] completed")
 }
 
 WebSocketClient.prototype.removeAllListeners = function () {
@@ -73,15 +80,19 @@ WebSocketClient.prototype.removeAllListeners = function () {
 }
 
 WebSocketClient.prototype.reconnect = function (evt) {
-  console.log("WebSocketClient: retry in", this.interval, "ms", evt);
+  if (window.DEBUG)
+    console.log("WebSocketClient: retry in", this.interval, "ms", evt);
   this.removeAllListeners();
 
   var self = this
   setTimeout(function() {
-    console.log("WebSocketClient: reconnecting...")
+    if (window.DEBUG)
+      console.log("WebSocketClient: reconnecting...")
     self.open(self.url)
   }, this.interval)
 }
+
+window.Socket = new EventEmitter3()
 
 function startWebsocket(callback) {
   msg("connecting to websocket")
@@ -107,7 +118,16 @@ function startWebsocket(callback) {
         if (callback) {
           callback(message)
         } else {
-          showValue(message)
+          window.Socket.emit('data.*', message)
+          if (message.key) {
+            window.Socket.emit('data.' + message.key, {
+              key: message.key,
+              value: message.value
+            })
+          } else {
+            window.Socket.emit('data', message)
+          }
+          // showValue(message)
         }
         msg(JSON.stringify(message))
       }
@@ -117,7 +137,15 @@ function startWebsocket(callback) {
       if (callback) {
         callback(message)
       } else {
-        showValue(message)
+        window.Socket.emit('data.*', message)
+        if (message.key) {
+          window.Socket.emit('data.' + message.key, {
+            key: message.key,
+            value: message.value
+          })
+        } else {
+          window.Socket.emit('data', { message: message })
+        }
       }
       msg(JSON.stringify(message))
     }

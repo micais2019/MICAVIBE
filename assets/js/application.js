@@ -1,3 +1,10 @@
+window.DEBUG = false
+window.log = function(){
+  if (window.DEBUG) {
+    console.log.apply(console, arguments);
+  }
+}
+
 $(function () {
   startWebsocket()
 
@@ -12,12 +19,4 @@ $(function () {
       $h.show()
     }
   })
-
-  $('.feed-value').on('click', function (evt) {
-    var $p = $(evt.target).parent('.feed-value')
-    console.log("evt", evt, $p.data('link'))
-    if ($p.data('link')) {
-      document.location.href = $p.data('link')
-    }
-  })
-});
+})

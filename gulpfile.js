@@ -15,14 +15,20 @@ function css() {
 }
 
 function js() {
-  return src([
+  return src('assets/js/vendor/*.js')
+    .pipe(src([
       'assets/js/socket.js',
       'assets/js/menu.js',
-      'assets/js/application.js'
-    ])
-    .pipe(src('assets/js/vendor/*.js'))
+      'assets/js/application.js',
+      'assets/js/sketches.js',
+      'assets/js/sketches/*.js'
+    ]))
     .pipe(concat('app.min.js'))
-    .pipe(uglify())
+    // .pipe(uglify())
+    .on('error', function (err) {
+      console.log(err.toString());
+      this.emit('end');
+    })
     .pipe(dest('public/js'))
 }
 

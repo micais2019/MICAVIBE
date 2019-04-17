@@ -28,7 +28,7 @@
 
     </div>
     <div class="grid-item g-3">
-      <div class="box-info"></div>
+      <div class="box-info" id="container"></div>
     </div>
     <div class="grid-item g-4"></div>
     <div class="grid-item g-5"></div>
@@ -38,3 +38,8 @@
   </div>
 </div>
 
+{{#contentFor "tail"}}
+  <script>
+    window.sketches.motion(window.document.getElementById('container'))
+  </script>
+{{/contentFor}}

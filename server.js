@@ -161,7 +161,7 @@ app.get("/", function (req, res) {
 });
 
 // static pages
-app.get(/\/(motion|sound|mood|love|about)/, function (req, res) {
+app.get(/\/(motion|sound|mood|love|about|data)/, function (req, res) {
   var page = req.path.replace('/','')
   res.render(page, { WS_URL: nconf.get('WS_URL') })
 });
