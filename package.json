@@ -48,6 +48,6 @@
     "gulp-concat-css": "^3.1.0",
     "gulp-minify": "^3.1.0",
     "gulp-rev": "^9.0.0",
-    "gulp-uglify": "^3.0.2"
+    "gulp-uglify-es": "^1.0.4"
   }
 }

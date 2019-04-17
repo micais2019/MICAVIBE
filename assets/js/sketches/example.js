@@ -1,6 +1,6 @@
 window.sketches.data = createProcessingSketch('*', function (self, p) {
   var records = []
-  var ysteps = 16
+  var ysteps = 24
 
   //
   // p5.js drawing code, default functions

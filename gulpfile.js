@@ -4,7 +4,7 @@
 const { src, dest, parallel, watch } = require("gulp");
 const cleanCss = require("gulp-clean-css");
 const concatCss = require("gulp-concat-css");
-const uglify = require("gulp-uglify");
+const uglify = require('gulp-uglify-es').default;
 const concat = require("gulp-concat");
 
 function css() {
@@ -24,7 +24,7 @@ function js() {
       'assets/js/sketches/*.js'
     ]))
     .pipe(concat('app.min.js'))
-    // .pipe(uglify())
+    .pipe(uglify())
     .on('error', function (err) {
       console.log(err.toString());
       this.emit('end');
