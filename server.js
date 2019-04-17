@@ -35,7 +35,15 @@ var APP_SECRET = nconf.get('APP_SECRET')
 
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
+
+// Use `.hbs` for extensions and find partials in `views/partials`.
+var hbs = require('express-hbs');
+app.engine('hbs', hbs.express4({
+  partialsDir: __dirname + '/views/partials',
+  defaultLayout: "views/layout.hbs"
+}));
 app.set('view engine', 'hbs');
+app.set('views', __dirname + '/views');
 
 //////////////////// MQTT
 
