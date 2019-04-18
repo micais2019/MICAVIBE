@@ -122,7 +122,8 @@ function startWebsocket(callback) {
           if (message.key) {
             window.Socket.emit('data.' + message.key, {
               key: message.key,
-              value: message.value
+              value: message.value,
+              mode: message.mode ? message.mode : 'live'
             })
           } else {
             window.Socket.emit('data', message)
@@ -141,7 +142,8 @@ function startWebsocket(callback) {
         if (message.key) {
           window.Socket.emit('data.' + message.key, {
             key: message.key,
-            value: message.value
+            value: message.value,
+            mode: message.mode ? message.mode : 'live'
           })
         } else {
           window.Socket.emit('data', { message: message })

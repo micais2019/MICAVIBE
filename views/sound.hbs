@@ -30,7 +30,7 @@
       </div>
     </div>
     <div class="grid-item g-3">
-      <div class="box-info"></div>
+      <div class="box-info" id="container"></div>
     </div>
     <div class="grid-item g-4"></div>
     <div class="grid-item g-5"></div>
@@ -39,3 +39,10 @@
     <div class="grid-item g-8"></div>
   </div>
 </div>
+
+{{#contentFor "tail"}}
+  <script>
+    window.sketches.sound(window.document.getElementById('container'))
+  </script>
+{{/contentFor}}
+

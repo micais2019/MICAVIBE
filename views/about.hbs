@@ -128,6 +128,15 @@
       students to pursue data-driven projects.
     </p>
   </div>
-  <div class="box-image"></div>
+  <div class="box-image" id="container"></div>
 </div>
+
+{{#contentFor "tail"}}
+{{!--
+  Each page that loads a p5.js sketch should include this code.
+--}}
+  <script>
+    window.sketches.data(window.document.getElementById('container'))
+  </script>
+{{/contentFor}}
 
