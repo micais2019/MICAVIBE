@@ -1,24 +1,7 @@
-function msg(message) {
-  $('#history').append("<div class='row'>" + message + "</div>")
-}
+window.DEBUG = false
 
-function showValue(record) {
-  if (window.DEBUG)
-    console.log("unpack ", record)
-
-  var key = record.key
-  var value = / /.test(record.value) ? record.value : parseInt(record.value)
-  if (isNaN(value)) {
-    value = record.value
-  }
-
-  var $f = $('#' + key)
-  $('.value', $f).text(value)
-}
-
-// https://github.com/websockets/ws/wiki/Websocket-client-implementation-for-auto-reconnect
 function WebSocketClient() {
-  this.interval = 1500;
+  this.reconnect_interval = 1500;
 }
 
 WebSocketClient.prototype.open = function (url) {
@@ -81,7 +64,7 @@ WebSocketClient.prototype.removeAllListeners = function () {
 
 WebSocketClient.prototype.reconnect = function (evt) {
   if (window.DEBUG)
-    console.log("WebSocketClient: retry in", this.interval, "ms", evt);
+    console.log("WebSocketClient: retry in", this.reconnect_interval, "ms", evt);
   this.removeAllListeners();
 
   var self = this
@@ -89,24 +72,21 @@ WebSocketClient.prototype.reconnect = function (evt) {
     if (window.DEBUG)
       console.log("WebSocketClient: reconnecting...")
     self.open(self.url)
-  }, this.interval)
+  }, this.reconnect_interval)
 }
 
 window.Socket = new EventEmitter3()
 
 function startWebsocket(callback) {
-  msg("connecting to websocket")
-
   var sock = new WebSocketClient()
   sock.open(window.WS_URL)
 
   sock.onopen = function (event) {
-    $('#indicator').removeClass('disconnected').addClass('connected')
-    msg("connected")
+    console.log("socket connected")
   }
 
   sock.onclose = function () {
-    $('#indicator').addClass('disconnected').removeClass('connected')
+    console.log("socket closed")
   }
   sock.onerror = sock.onclose
 
@@ -128,9 +108,7 @@ function startWebsocket(callback) {
           } else {
             window.Socket.emit('data', message)
           }
-          // showValue(message)
         }
-        msg(JSON.stringify(message))
       }
       reader.readAsText(data)
     } else if (typeof data == "string") {
@@ -149,7 +127,6 @@ function startWebsocket(callback) {
           window.Socket.emit('data', { message: message })
         }
       }
-      msg(JSON.stringify(message))
     }
   }
 }

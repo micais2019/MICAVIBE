@@ -10,7 +10,6 @@ function createProcessingSketch(channel, callback) {
       var resize = function () {
         self.width = $(container).width()
         self.height = $(container).height()
-        // console.log("got size", { width: self.width, height: self.height })
       }
       resize()
 

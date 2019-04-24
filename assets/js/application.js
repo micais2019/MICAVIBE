@@ -1,10 +1,3 @@
-window.DEBUG = false
-window.log = function(){
-  if (window.DEBUG) {
-    console.log.apply(console, arguments);
-  }
-}
-
 $(function () {
   startWebsocket()
 
