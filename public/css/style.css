@@ -325,7 +325,8 @@ body {
   }
 
   #about {
-    margin-top: 6.8vw;
+    cursor: pointer;
+    margin-top: 8.8vw;
     margin-left: auto;
     text-align: center;
   }
@@ -335,10 +336,6 @@ body {
     display: block;
     margin-left: auto;
     margin-top: .8vw;
-  }
-
-  #about {
-    cursor: pointer;
   }
 
   .arrow:hover {
