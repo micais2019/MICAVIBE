@@ -33,7 +33,7 @@ module.exports = {
       ref  : "origin/master",
       repo : "git@github.com:micais2019/micavibe.com.git",
       path : "/var/www/app",
-      "post-deploy" : "ln -fs /var/www/app/shared/.nconf.json /var/www/app/current/ && npm install && pm2 startOrRestart ecosystem.config.js --env production"
+      "post-deploy" : "ln -fs /var/www/app/shared/.nconf.json /var/www/app/current/ && ln -fs /var/www/app/shared/data /var/www/app/current/public/data && npm install && pm2 startOrRestart ecosystem.config.js --env production"
     }
   }
 }

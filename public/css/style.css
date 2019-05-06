@@ -1,3 +1,19 @@
+.info_about p a.reference:active,
+.info_about p a.reference:hover,
+.info_about p a.reference:link,
+.info_about p a.reference:visited {
+  color: #325597;
+  text-decoration: underline;
+}
+
+.info_about p {
+  margin-top: 16px;
+}
+
+.info_about h3 {
+  margin-top: 24px;
+}
+
 @media only screen and (max-width:800px) {
   .icon-5 {
     margin-left: auto;
@@ -49,7 +65,7 @@
     position: absolute;
     margin-top: -35vw;
     margin-left: 10vw;
-    height: 38vw;
+    height: 49vw;
     width: 47vw;
     text-align: left;
   }
@@ -123,6 +139,12 @@ body {
 
 .description p {
   margin-bottom: 18px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 @media only screen and (min-width:801px) {
   body {
@@ -303,7 +325,7 @@ body {
   }
 
   #about {
-    margin-top: 1.8vw;
+    margin-top: 6.8vw;
     margin-left: auto;
     text-align: center;
   }

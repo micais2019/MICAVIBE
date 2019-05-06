@@ -54,3 +54,10 @@ body {
 .description p {
   margin-bottom: 18px;
 }
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
