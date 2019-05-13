@@ -18,11 +18,13 @@ var SocketCollection = require('./socket_collection')
 var Weather = require('./weather')
 
 var Datastore = require('nedb'),
+  sqlite3 = require('sqlite3'),
   // Security note: the database is saved to the file `datafile` on the local filesystem.
   // It's deliberately placed in the `.data` directory which doesn't get copied if
   // someone remixes the project.
   feeds = new Datastore({ filename: '.data/datafile', autoload: true }),
-  weather = new Datastore({ filename: '.data/weather', autoload: true });
+  weather = new Datastore({ filename: '.data/weather', autoload: true }),
+  archive = new sqlite3.Database('public/data/archive.sqlite', sqlite3.OPEN_READONLY);
 
 // POST requests should unpack form data
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -58,6 +60,7 @@ client.on('connect', function () {
 })
 
 var lastValues = {}
+var Sockets = new SocketCollection()
 
 client.on('message', function (topic, message) {
   // message is Buffer
@@ -65,7 +68,7 @@ client.on('message', function (topic, message) {
 
   const fwd = () => {
     console.log("[MQTT]", topic, message.toString())
-    sockets.onMessage(JSON.stringify({
+    Sockets.onMessage(JSON.stringify({
       id: data.id,
       value: data.value,
       key: data.feed_key,
@@ -73,10 +76,13 @@ client.on('message', function (topic, message) {
     }))
   }
 
+  // update the last value record...
   feeds.update({ key: data.feed_key }, {$set: {value: data.value, created_at: data.created_at}}, function (err, n) {
     if (n === 0) {
+      // or store it, if this is the first time we've seen it...
       feeds.insert({ key: data.feed_key, value: data.value, created_at: data.created_at })
     }
+    // and send it along to all connected sockets
     fwd()
   })
 })
@@ -85,13 +91,62 @@ client.on('message', function (topic, message) {
 
 
 
-//////////////////// WEBSOCKET
+//////////////////// MQTT SIMULATOR
 
-var sockets = new SocketCollection()
+const VIBE_START = Date.parse('2019-04-15T17:00-04:00') / 1000
+const VIBE_END = Date.parse('2019-05-05T04:00-04:00') / 1000
+const VIBE_LENGTH = VIBE_END - VIBE_START
+const QUERY = archive.prepare(`SELECT * FROM data WHERE created_at = ?`)
+
+function pulse(unix_epoch) {
+  // get timestamp mod length of experiment
+  const round = unix_epoch % VIBE_LENGTH
+  const sim_stamp = VIBE_START + round
+  // console.log("tick", unix_epoch, "sim", sim_stamp)
+
+  try {
+    QUERY.all(sim_stamp, function  (err, records) {
+      if (err) {
+        console.error("failed search", err)
+      } else if(records.length > 0) {
+        records.forEach(function (record) {
+          const to_publish = {
+            value: record.value,
+            key: record.key,
+            created_at: record.created_at
+          }
+          // console.log("PUB", to_publish)
+          Sockets.onMessage(JSON.stringify(to_publish))
+        })
+      }
+    })
+  } catch (ex) {
+    console.error("failed lookup", ex)
+  }
+}
+
+let last_update = 0
+function pulse_trigger() {
+  const now = new Date().getTime()
+  if (now - last_update > 1000) {
+    pulse(Math.floor(now / 1000))
+    last_update = now
+  }
+}
+setInterval(pulse_trigger, 50)
+
+//////////////// END MQTT SIMULATOR
+///////////////////////////////////
+
+
+
+//////////////////// WEBSOCKET
 app.ws('/streaming', function(ws, req) {
   console.log("got client connection")
-  sockets.addConnection(ws)
+  Sockets.addConnection(ws)
 
+  // when a streaming client (browser + websocket) connects, send them the most
+  // recent feed values
   feeds.find({}, function (err, feeds) { // Find all values in the collection
     console.log("found", feeds.length, "feeds")
 

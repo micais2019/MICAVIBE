@@ -13,3 +13,9 @@ $(function () {
     }
   })
 })
+
+function formattedDate(date) {
+  var ts = new Date()
+  ts.setTime(parseInt(date) * 1000)
+  return dateFns.format(ts, "MM.DD.YYYY HH:mm:ss")
+}

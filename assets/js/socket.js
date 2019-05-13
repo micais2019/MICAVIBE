@@ -103,6 +103,7 @@ function startWebsocket(callback) {
             window.Socket.emit('data.' + message.key, {
               key: message.key,
               value: message.value,
+              created_at: message.created_at,
               mode: message.mode ? message.mode : 'live'
             })
           } else {
@@ -121,6 +122,7 @@ function startWebsocket(callback) {
           window.Socket.emit('data.' + message.key, {
             key: message.key,
             value: message.value,
+            created_at: message.created_at,
             mode: message.mode ? message.mode : 'live'
           })
         } else {

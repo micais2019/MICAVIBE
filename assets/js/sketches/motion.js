@@ -1,9 +1,10 @@
-window.sketches.motion = createProcessingSketch('split-motion', function (self, p) {
+window.sketches.motion = createProcessingSketch('motion', function (self, p) {
   var xsteps = 8
   var ysteps = 6
 
   let fromC = p.color(0, 40, 255);
   let toC = p.color(218, 28, 0);
+  var updateTime = null
 
   p.setup = function () {
     p.createCanvas(self.width, self.height)
@@ -15,9 +16,19 @@ window.sketches.motion = createProcessingSketch('split-motion', function (self, 
     // background fader
     p.fill(0, 15)
     p.rect(0, 0, p.width, p.height)
+
+    if (updateTime) {
+      var date = formattedDate(updateTime)
+      p.fill(0)
+      p.rect(8, 2, p.textWidth(date) + 4, 20)
+      p.fill(255)
+      p.text(date, 10, 20)
+    }
   }
 
   p.onData = function (data) {
+    updateTime = data.created_at
+
     var values = data.value.split(' ').map(function (v) {
       return parseInt(v)
     })
@@ -41,5 +52,4 @@ window.sketches.motion = createProcessingSketch('split-motion', function (self, 
       p.rect(x * xs, y * ys, xs, ys)
     }
   }
-
 })

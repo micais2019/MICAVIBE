@@ -37,6 +37,8 @@ window.sketches.sound = createProcessingSketch(['sound', 'sound-2'], function (s
     []
   ]
 
+  var updateTime = null
+
   //
   // p5.js drawing code, default functions
   //
@@ -59,10 +61,19 @@ window.sketches.sound = createProcessingSketch(['sound', 'sound-2'], function (s
 
     p.drawBar(0, 0, p.height / 2)
     p.drawBar(1, p.height/2 + 1, p.height)
+
+    if (updateTime) {
+      var date = formattedDate(updateTime)
+      p.fill(255)
+      p.text(date, 10, 20)
+    }
   }
 
   // required
   p.onData = function (data) {
+    console.log("onData", data)
+    updateTime = data.created_at
+
     var values = data.value.split(' ').map(function (v) { return parseInt(v) })
     // add sound values to animate
     values.forEach(function (val) {
@@ -73,7 +84,7 @@ window.sketches.sound = createProcessingSketch(['sound', 'sound-2'], function (s
   }
 
 
-  var INTERVAL = 100
+  var INTERVAL = 110
   p.updateBar = function (sound, barIndex) {
     var bar = soundBars[barIndex]
     var xstep = p.width / 60
