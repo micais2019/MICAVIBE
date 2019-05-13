@@ -4,4 +4,5 @@ node_modules/
 .nconf.json
 yarn-error.log
 .DS_Store
-
+public/data/*
+bin/create_nedb.js
