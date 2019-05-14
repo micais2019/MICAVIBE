@@ -102,7 +102,10 @@ function pulse(unix_epoch) {
   // get timestamp mod length of experiment
   const round = unix_epoch % VIBE_LENGTH
   const sim_stamp = VIBE_START + round
-  // console.log("tick", unix_epoch, "sim", sim_stamp)
+
+  // const time = new Date()
+  // time.setTime(sim_stamp * 1000)
+  // console.log("tick", { unix_epoch, round, sim_stamp, VIBE_LENGTH, time })
 
   try {
     QUERY.all(sim_stamp, function  (err, records) {
