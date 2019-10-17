@@ -136,7 +136,7 @@ function pulse_trigger() {
     last_update = now
   }
 }
-setInterval(pulse_trigger, 50)
+// setInterval(pulse_trigger, 50)
 
 //////////////// END MQTT SIMULATOR
 ///////////////////////////////////
