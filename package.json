@@ -16,7 +16,7 @@
     "aws-sdk": "^2.437.0",
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.4",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "express-hbs": "^2.1.2",
     "express-session": "^1.15.6",
     "express-ws": "^4.0.0",
